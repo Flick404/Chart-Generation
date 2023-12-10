@@ -1,0 +1,5 @@
+mplfinance
+openai
+pandas
+yfinance
+python-dotenv
