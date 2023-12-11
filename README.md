@@ -18,26 +18,27 @@ cd stock-analysis-tool
 pip install -r requirements.txt
 Usage
 Run the program using the following command and follow the on-screen prompts:
+```
 
-bash
+```bash
 Copy code
 python main.py
 Environment Variables
 Ensure that your .env file contains the following variable:
+```
 
 OPENAI_API_KEY: Your API key for OpenAI to use the GPT model.
-Code Documentation
+## Code Documentation
 main.py
 This script serves as the entry point for the application. It orchestrates the workflow of the tool.
 
-python
-Copy code
+```python
 import chart
 import ticker_recognition
+```
 The main function controls the application's flow, asking for user input and invoking other modules to process the input and plot data.
 
-python
-Copy code
+```python
 def main():
     user_input = input("Please enter the name or description of a stock: ")
     ticker_symbol = ticker_recognition.get_ticker_symbol(user_input)
@@ -46,12 +47,12 @@ def main():
 if __name__ == "__main__":
     main()
 chart.py
+```
 This module includes functions for fetching stock data and plotting the chart.
 
 Fetching historical data and preparing the Heikin-Ashi DataFrame:
 
-python
-Copy code
+```python
 import yfinance as yf
 import mplfinance as mpf
 from datetime import datetime, timedelta
@@ -65,22 +66,21 @@ def plot_stock_data(ticker_symbol):
     data = stock.history(start=start_date.strftime("%Y-%m-%d"), end=end_date.strftime("%Y-%m-%d"))
     
     # ... additional processing ...
+```
 Calculating Heikin-Ashi candlesticks:
 
-python
-Copy code
+```python
 def heikin_ashi(df):
     # ... code to calculate Heikin-Ashi candlesticks ...
+```
 Calculating RSI:
 
-python
-Copy code
+```python
 def compute_rsi(data, window=14):
     # ... code to compute RSI ...
 Final plotting with Moving Averages and RSI:
-
-python
-Copy code
+```
+```python
     # ... continued from plot_stock_data
     ha_data = heikin_ashi(data)
     ha_data['MA50'] = ha_data['Close'].rolling(window=50).mean()
@@ -90,12 +90,12 @@ Copy code
     # ... additional plotting setup ...
     mpf.plot(ha_data, type='candle', style='charles', addplot=apds, title=f'{ticker_symbol} Heikin-Ashi Chart', volume=False, figratio=(12,8), panel_ratios=(4,1))
 ticker_recognition.py
+```
 This module leverages the OpenAI API to recognize stock ticker symbols from descriptions.
 
 Loading environment variables and initializing the OpenAI client:
 
-python
-Copy code
+```python
 from openai import OpenAI
 import os
 from dotenv import load_dotenv
@@ -110,10 +110,10 @@ def get_ticker_symbol(user_input):
     
     client = OpenAI(api_key=api_key)
     # ... additional processing ...
+```
 Making the OpenAI API call to get the ticker symbol:
 
-python
-Copy code
+```python
     # ... continued from get_ticker_symbol
     response = client.chat.completions.create(
         model="gpt-4",
@@ -125,4 +125,8 @@ Copy code
     
     ticker = response.choices[0].message.content.strip()
     return ticker
-Contributing
+```
+
+
+## Contributing
+Contributions to the Goggins Telegram Bot are welcome. Please follow the standard fork-and-pull request workflow.
