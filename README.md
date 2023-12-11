@@ -21,7 +21,6 @@ Run the program using the following command and follow the on-screen prompts:
 ```
 
 ```bash
-Copy code
 python main.py
 Environment Variables
 Ensure that your .env file contains the following variable:
@@ -29,7 +28,7 @@ Ensure that your .env file contains the following variable:
 
 OPENAI_API_KEY: Your API key for OpenAI to use the GPT model.
 ## Code Documentation
-main.py
+### main.py
 This script serves as the entry point for the application. It orchestrates the workflow of the tool.
 
 ```python
@@ -46,8 +45,9 @@ def main():
 
 if __name__ == "__main__":
     main()
-chart.py
+
 ```
+### chart.py
 This module includes functions for fetching stock data and plotting the chart.
 
 Fetching historical data and preparing the Heikin-Ashi DataFrame:
@@ -78,8 +78,8 @@ Calculating RSI:
 ```python
 def compute_rsi(data, window=14):
     # ... code to compute RSI ...
-Final plotting with Moving Averages and RSI:
 ```
+Final plotting with Moving Averages and RSI:
 ```python
     # ... continued from plot_stock_data
     ha_data = heikin_ashi(data)
@@ -89,8 +89,10 @@ Final plotting with Moving Averages and RSI:
     
     # ... additional plotting setup ...
     mpf.plot(ha_data, type='candle', style='charles', addplot=apds, title=f'{ticker_symbol} Heikin-Ashi Chart', volume=False, figratio=(12,8), panel_ratios=(4,1))
-ticker_recognition.py
+
 ```
+### ticker_recognition.py
+
 This module leverages the OpenAI API to recognize stock ticker symbols from descriptions.
 
 Loading environment variables and initializing the OpenAI client:
