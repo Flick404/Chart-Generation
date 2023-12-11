@@ -131,4 +131,4 @@ Making the OpenAI API call to get the ticker symbol:
 
 
 ## Contributing
-Contributions to the Goggins Telegram Bot are welcome. Please follow the standard fork-and-pull request workflow.
+Contributions are welcome. Please follow the standard fork-and-pull request workflow.
