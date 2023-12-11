@@ -16,9 +16,9 @@ This tool is designed to allow users to input a stock name or description, ident
 git clone [https://github.com/yourusername/stock-analysis-tool](https://github.com/Flick404/Chart-Generation)
 cd stock-analysis-tool
 pip install -r requirements.txt
-Usage
-Run the program using the following command and follow the on-screen prompts:
 ```
+## Usage
+Run the program using the following command and follow the on-screen prompts:
 
 ```bash
 python main.py
