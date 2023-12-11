@@ -13,7 +13,7 @@ This tool is designed to allow users to input a stock name or description, ident
 ## Installation
 
 ```bash
-git clone https://github.com/yourusername/stock-analysis-tool
+git clone [https://github.com/yourusername/stock-analysis-tool](https://github.com/Flick404/Chart-Generation)
 cd stock-analysis-tool
 pip install -r requirements.txt
 Usage
